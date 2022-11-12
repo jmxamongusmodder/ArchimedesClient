@@ -356,6 +356,7 @@ public class Minecraft implements Runnable {
 		
 		byte[] b = EaglerAdapter.loadResourceBytes("adderall");
 		yeeState = b != null && (new String(b, StandardCharsets.UTF_8)).hashCode() == 508925104;
+		
 	}
 	
 	private void showIntroAnimation() {

@@ -550,13 +550,13 @@ public class GuiMainMenu extends GuiScreen {
 		EaglerAdapter.glDisable(EaglerAdapter.GL_BLEND);
 		EaglerAdapter.glPopMatrix();
 		*/
-		var10 = "eaglercraft readme.txt";
-		int w = this.fontRenderer.getStringWidth(var10) * 3 / 4;
-		if(!showAck && par1 >= (this.width - w - 4) && par1 <= this.width && par2 >= 0 && par2 <= 9) {
-			drawRect((this.width - w - 4), 0, this.width, 9, 0x55000099);
-		}else {
-			drawRect((this.width - w - 4), 0, this.width, 9, 0x55200000);
-		}
+		// var10 = "eaglercraft readme.txt";
+		// int w = this.fontRenderer.getStringWidth(var10) * 3 / 4;
+		// if(!showAck && par1 >= (this.width - w - 4) && par1 <= this.width && par2 >= 0 && par2 <= 9) {
+		// 	drawRect((this.width - w - 4), 0, this.width, 9, 0x55000099);
+		// }else {
+		// 	drawRect((this.width - w - 4), 0, this.width, 9, 0x55200000);
+		// }
 		EaglerAdapter.glPushMatrix();
 		EaglerAdapter.glTranslatef((this.width - w - 2), 1.0f, 0.0f);
 		EaglerAdapter.glScalef(0.75f, 0.75f, 0.75f);
