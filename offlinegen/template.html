@@ -106,6 +106,22 @@ _css_
 </style>
 
 <script type="text/javascript">
+function getAssetsURI() {
+	return `data:application/octet-stream;base64,${selectedPack}`;
+}
+</script>
+
+<script type="text/javascript">
+function createWorkerURI(el) {
+	var eee = document.getElementById(el);
+	var str = eee.innerHTML;
+	eee.remove();
+	str = "onmessage = function(o) { eaglercraftServerOpts = o.data; main(); };\n" + str;
+	return URL.createObjectURL(new Blob([str], {type:"text/javascript"}));
+}
+</script>
+
+<script type="text/javascript">
 function Launch() {
 document.getElementById("launcher").style.display = "none";
 var selectedPack = document.getElementById("packs").value;
@@ -121,7 +137,7 @@ const servers = [
 	{ serverName: "AyunBoom", serverAddress: "wss://sus.shhnowisnottheti.me" }
 ]
 window.eaglercraftOpts = {
-container: "game_frame", assetsURI: getAssetsURI(), serverWorkerURI: "worker_bootstrap.js", worldsFolder: "TEST",
+container: "game_frame", assetsURI: getAssetsURI(), serverWorkerURI: createWorkerURI("sp_server"), worldsFolder: "TEST",
 assetOverrides: {
     "sounds/gta.mp3": "https://stream.nightride.fm/spacesynth.ogg",
 },
@@ -137,22 +153,6 @@ mainMenu: { splashes: [
 "1983 loves femboys", "when the impostor is sus...", "Never gonna give you up", "I need more splash texts", "the skornky worngy", "ip grabber", "oh my goodness gracious","just took 40 benadryl","waltre wite", "hop on mindustry"
 ], eaglerLogo: true }};
 main();
-}
-</script>
-
-<script type="text/javascript">
-function getAssetsURI() {
-	return `data:application/octet-stream;base64,${selectedPack}`;
-}
-</script>
-
-<script type="text/javascript">
-function createWorkerURI(el) {
-	var eee = document.getElementById(el);
-	var str = eee.innerHTML;
-	eee.remove();
-	str = "onmessage = function(o) { eaglercraftServerOpts = o.data; main(); };\n" + str;
-	return URL.createObjectURL(new Blob([str], {type:"text/javascript"}));
 }
 </script>
 

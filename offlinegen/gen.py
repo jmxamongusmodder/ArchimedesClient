@@ -4,7 +4,7 @@ template = open("template.html").read()
 
 def epkToBase64(epkname):
     epk = open(f"../compiled/packs/{epkname}.epk","rb").read()
-    return base64.b64encode(epk).decode("utf-8")
+    return base64.urlsafe_b64encode(epk).decode("utf-8")
 
 threebedwars = epkToBase64("3Bedwars")
 
@@ -29,8 +29,7 @@ templatePatch("classes_server_js", open("../compiled/classes_server.js").read())
 
 templatePatch("_css_", open("../compiled/style.css").read())
 
-iconb64 = base64.b64encode(open("../compiled/favicon.png","rb").read()).decode("utf-8")
-templatePatch("_logo_", iconb64)
+templatePatch("icon", base64.urlsafe_b64encode(open("../compiled/favicon.png","rb").read()).decode("utf-8"))
 
 templatePatch("_date_", os.popen("date").read())
 
