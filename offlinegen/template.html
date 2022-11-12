@@ -106,25 +106,10 @@ _css_
 </style>
 
 <script type="text/javascript">
-function getAssetsURI() {
-	return `data:application/octet-stream;base64,${selectedPack}`;
-}
-</script>
-
-<script type="text/javascript">
-function createWorkerURI(el) {
-	var eee = document.getElementById(el);
-	var str = eee.innerHTML;
-	eee.remove();
-	str = "onmessage = function(o) { eaglercraftServerOpts = o.data; main(); };\n" + str;
-	return URL.createObjectURL(new Blob([str], {type:"text/javascript"}));
-}
-</script>
-
-<script type="text/javascript">
 function Launch() {
+var selectedPack = document.getElementById("packs");
 document.getElementById("launcher").style.display = "none";
-var selectedPack = document.getElementById("packs").value;
+
 const relayId = Math.floor(Math.random() * 3);
 const servers = [
 	{ serverName: "HellTech", serverAddress: "wss://hellscaped.tech", hideAddress: false },
@@ -137,7 +122,7 @@ const servers = [
 	{ serverName: "AyunBoom", serverAddress: "wss://sus.shhnowisnottheti.me" }
 ]
 window.eaglercraftOpts = {
-container: "game_frame", assetsURI: getAssetsURI(), serverWorkerURI: createWorkerURI("sp_server"), worldsFolder: "TEST",
+container: "game_frame", assetsURI: getAssetsURI(), serverWorkerURI: createWorkerURI("sp_worker"), worldsFolder: "TEST",
 assetOverrides: {
     "sounds/gta.mp3": "https://stream.nightride.fm/spacesynth.ogg",
 },
@@ -167,6 +152,21 @@ eagswebrtc_js
 classes_server_js
 </script>
 
+<script type="text/javascript">
+function getAssetsURI() {
+	return `data:application/octet-stream;base64,${document.getElementById("packs").value}`;
+}
+</script>
+
+<script type="text/javascript">
+function createWorkerURI(el) {
+	var eee = document.getElementById(el);
+	var str = eee.innerHTML;
+	eee.remove();
+	str = "onmessage = function(o) { eaglercraftServerOpts = o.data; main(); };\n" + str;
+	return URL.createObjectURL(new Blob([str], {type:"text/javascript"}));
+}
+</script>
 
 </head>
 <body style="margin:0px;width:100vw;height:100vh;font-family:sans-serif;" id="game_frame">

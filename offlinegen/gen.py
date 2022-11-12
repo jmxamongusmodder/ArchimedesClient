@@ -35,3 +35,5 @@ templatePatch("_date_", os.popen("date").read())
 
 
 open("../compiled/offline.html", "w").write(template)
+
+print("generated offline.html at " + os.popen("date").read())
