@@ -22,7 +22,8 @@
 <select id="packs" class="dropdown">
 <option value="default">Default Pack</option>
 <option value="3Bedwars">3Bedwars (broken)</option>
-<option value="toryeum">Tory Eum EDIT (broken)</option>
+<option value="toryeum">Tory Eum EDIT</option>
+<option value="qubit16x">Qubit 16x</option>
 </select>
 <br>
 <button onclick="Launch()">Launch</button>
@@ -31,39 +32,7 @@
 if (localStorage.lastPack != null) {
 	document.getElementById("packs").value = localStorage.lastPack;
 }
-function Launch() {
-document.getElementById("launcher").style.display = "none";
-var selectedPack = document.getElementById("packs").value;
-localStorage.lastPack = selectedPack;
-const relayId = Math.floor(Math.random() * 3);
-const servers = [
-	{ serverName: "HellTech", serverAddress: "wss://hellscaped.tech", hideAddress: false },
-	{ serverName: "HellTech Proxy #1", serverAddress: "wss://helltech-proxy.hellscaped.repl.co", hideAddress: false },
-	{ serverName: "A*spixel", serverAddress: "wss://web.asspixel.net/CAP/", hideAddress: true },
-	{ serverName: "VanillaCraft", serverAddress: "wss://play.vanillacraftsmp.org/" },
-	{ serverName: "SealCraft", serverAddress: "wss://sealcraft.ddns.net:442/servers" },
-	{ serverName: "BlobCraft", serverAddress: "wss://blobcraft.tk" },
-	{ serverName: "Aeon", serverAddress: "wss://aeon-network.net/aeon" },
-	{ serverName: "AyunBoom", serverAddress: "wss://sus.shhnowisnottheti.me" }
-]
-window.eaglercraftOpts = {
-container: "game_frame", assetsURI: `packs/${selectedPack}.epk`, serverWorkerURI: "worker_bootstrap.js", worldsFolder: "TEST",
-assetOverrides: {
-    "sounds/gta.mp3": "https://stream.nightride.fm/spacesynth.ogg",
-},
-servers: servers,
-hideDownServers: true,
-relays: [
-	{ addr: "wss://relay.deev.is/", name: "lax1dude relay #1", primary: relayId == 0 },
-	{ addr: "wss://relay.lax1dude.net/", name: "lax1dude relay #2", primary: relayId == 1 },
-	{ addr: "wss://relay.shhnowisnottheti.me/", name: "ayunami relay #1", primary: relayId == 2 }
-],
-mainMenu: { splashes: [
-"Archimedes Client", "https://hellscaped.tech", "\"Have you ever looked at your mind while thinking about your mind, but using your brain the same time? But then wheres the cat?\" -Helloguys.com (on helltech)", 
-"1983 loves femboys", "when the impostor is sus...", "Never gonna give you up", "I need more splash texts", "the skornky worngy", "ip grabber", "oh my goodness gracious","just took 40 benadryl","waltre wite", "hop on mindustry"
-], eaglerLogo: true }};
-main();
-}
+
 </script>
 </body>
 </html>
