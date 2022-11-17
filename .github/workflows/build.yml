@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  schedule:
+    - cron: 0 0 * * *
+  workflow-dispatch:
+
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v3
+      # ...
+      - name: "Build client"
+        run: |
+          gradle teavm
+
+      - name: "Create offline download"
+        run: |
+          cd compiled/offlinegen
+          python3 gen.py
+          cd ..
+      
+      - name: "Commit"
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git add compiled/classes.js
+          git add compiled/classes_server.js
+          git add compiled/offline.html
+          git commit -m "compile & commit"
+          git push origin master
