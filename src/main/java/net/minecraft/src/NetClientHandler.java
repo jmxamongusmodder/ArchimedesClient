@@ -22,6 +22,7 @@ import net.lax1dude.eaglercraft.WebsocketNetworkManager;
 import net.lax1dude.eaglercraft.WorkerNetworkManager;
 import net.lax1dude.eaglercraft.adapter.EaglerAdapterImpl2.RateLimit;
 import net.minecraft.client.Minecraft;
+import software.hellscaped.archimedes.mod.impl.AutoGG;
 
 public class NetClientHandler extends NetHandler {
 	/** True if kicked or disconnected from the server. */
@@ -567,6 +568,7 @@ public class NetClientHandler extends NetHandler {
 	}
 
 	public void handleChat(Packet3Chat par1Packet3Chat) {
+		AutoGG.parseMessage(par1Packet3Chat.message);
 		this.mc.ingameGUI.getChatGUI().printChatMessage(par1Packet3Chat.message);
 	}
 
