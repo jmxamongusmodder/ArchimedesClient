@@ -31,4 +31,4 @@ jobs:
           git add compiled/classes_server.js
           git add compiled/offline.html
           git commit -m "compile & commit"
-          git push origin master
+          git push origin main
