@@ -25,11 +25,13 @@ public class ModManager {
         this.modules.add(m);
     }
     
-    public void onKey(int keyCode){
-        for(int i = 0; i < modules.size(); i++){
-            if(modules.get(i).keyBind == keyCode && keyCode != 0)
-                modules.get(i).toggle();
-        }
-    }
+    public void onKey(int keycode) {
+		for (int i = 0; i < modules.size(); i++) {
+			if (keycode == modules.get(i).keyBind && keycode != 0) {
+				modules.get(i).toggle();
+			}
+		}
+	}
+
 
 }
