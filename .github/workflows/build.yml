@@ -3,7 +3,7 @@ name: Build
 on:
   schedule:
     - cron: 0 0 * * *
-  workflow-dispatch:
+  workflow_dispatch:
 
 
 jobs:
