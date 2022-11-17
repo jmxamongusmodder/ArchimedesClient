@@ -85,6 +85,7 @@ import net.minecraft.src.TexturePackList;
 import net.minecraft.src.Timer;
 import net.minecraft.src.WorldClient;
 import net.minecraft.src.WorldSettings;
+import software.hellscaped.archimedes.Main;
 
 public class Minecraft implements Runnable {
 	
@@ -320,6 +321,8 @@ public class Minecraft implements Runnable {
 		this.guiAchievement = new GuiAchievement(this);
 		this.ingameGUI = new GuiIngame(this);
 		this.voiceOverlay = new GuiVoiceOverlay(this);
+
+		Main.init();
 
 		ScaledResolution var2 = new ScaledResolution(this.gameSettings, this.displayWidth, this.displayHeight);
 		int var3 = var2.getScaledWidth();
@@ -1265,6 +1268,8 @@ public class Minecraft implements Runnable {
 				if (EaglerAdapter.getEventKeyState()) {
 					KeyBinding.onTick(EaglerAdapter.getEventKey());
 				}
+
+				Main.INSTANCE.modManager.onKey(EaglerAdapter.getEventKey());
 
 				boolean F3down = (this.gameSettings.keyBindFunction.pressed && EaglerAdapter.isKeyDown(4));
 
