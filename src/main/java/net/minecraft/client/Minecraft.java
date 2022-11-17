@@ -322,7 +322,7 @@ public class Minecraft implements Runnable {
 		this.ingameGUI = new GuiIngame(this);
 		this.voiceOverlay = new GuiVoiceOverlay(this);
 
-		Main.init();
+		Main.INSTANCE.init();
 
 		ScaledResolution var2 = new ScaledResolution(this.gameSettings, this.displayWidth, this.displayHeight);
 		int var3 = var2.getScaledWidth();

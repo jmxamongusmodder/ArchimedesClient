@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import software.hellscaped.archimedes.mod.impl.AutoGG;
+import software.hellscaped.archimedes.mod.impl.Example;
 
 public class ModManager {
 
     public List<Mod> modules = new ArrayList<>();
 
     public static AutoGG autoGG;
+    public static Example example;
 
     public ModManager(){
 
@@ -17,6 +19,7 @@ public class ModManager {
 
         //Misc
 
+        register(example = new Example());
         register(autoGG = new AutoGG());
 
     }

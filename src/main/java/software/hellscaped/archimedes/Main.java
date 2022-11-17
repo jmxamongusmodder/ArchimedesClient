@@ -9,7 +9,8 @@ public class Main {
     public static Main INSTANCE = new Main();
     public ModManager modManager;
 
-    public static void init() {
+    public void init() {
+        modManager = new ModManager();
         System.out.println("Archimedes Client Starting");
     }
 
