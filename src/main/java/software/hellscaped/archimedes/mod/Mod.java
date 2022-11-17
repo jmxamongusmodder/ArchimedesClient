@@ -18,13 +18,9 @@ public class Mod {
     public void onDisable(){ }
 
     public void toggle(){
-        if(this.enabled == false) {
-            this.onEnable();
-            this.enabled = true;
-        } else if (this.enabled == true) {
-            this.onDisable();
-            this.enabled = false;
-        }
+         this.enabled = !this.enabled;
+        if(this.enabled) {this.onEnable();}
+        else if(!this.enabled) {this.onDisable();}
     }
 
     public String getName() { return name; }
