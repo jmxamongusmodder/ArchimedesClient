@@ -20,8 +20,10 @@ public class Mod {
     public void toggle(){
         if(this.enabled)
             this.onEnable();
+            this.enabled = !this.enabled;
         else if(!this.enabled)
             this.onDisable();
+            this.enabled = !this.enabled;
     }
 
     public String getName() { return name; }
