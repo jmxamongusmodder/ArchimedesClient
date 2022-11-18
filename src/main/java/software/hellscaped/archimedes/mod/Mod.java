@@ -13,23 +13,38 @@ public class Mod {
         this.name = name;
         this.keyBind = keyBind;
     }
+    
+    public void onEnable() {
+	}
 
-    public void onEnable(){ }
-    public void onDisable(){ }
+	public void onDisable() {
+	}
 
-    public void toggle(){
-        this.enabled = !this.enabled;
-        boolean debounce = false;
-        if(this.enabled && debounce == false) {this.onEnable();debounce = true;}
-        else if(!this.enabled && debounce == false) {this.onDisable(); debounce = true;}
-        debounce = false;
-    }
+    
+    //Pretty sure the debounce thing didn't do anything.
+    
+	public void toggle() {
+		this.enabled = !this.enabled;
+		if (this.enabled)
+			onEnable();
+		else
+			onDisable();
+	}
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public int getKeyBind() { return keyBind; }
-    public void setKeyBind(int keyBind) { this.keyBind = keyBind; }
-    public boolean isEnabled() { return enabled; }
-    public void setEnabled(boolean enabled) { this.enabled = enabled; }
+	public void setEnabled(boolean state) {
+		this.enabled = state;
+		if (this.enabled)
+			onEnable();
+		else
+			onDisable();
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public String getName() {
+		return name;
+	}
 
 }
