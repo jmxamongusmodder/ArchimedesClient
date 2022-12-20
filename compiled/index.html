@@ -36,7 +36,6 @@ function Launch() {
 var selectedPack = document.getElementById("packs").value;
 document.getElementById("launcher").style.display = "none";
 
-const relayId = Math.floor(Math.random() * 3);
 const servers = [
 	{ serverName: "HellTech", serverAddress: "wss://hellscaped.tech", hideAddress: false },
 	{ serverName: "HellTech Proxy #1", serverAddress: "wss://helltech-proxy.hellscaped.repl.co", hideAddress: true },
@@ -56,9 +55,7 @@ assetOverrides: {
 servers: servers,
 hideDownServers: true,
 relays: [
-	{ addr: "wss://relay.deev.is/", name: "lax1dude relay #1", primary: relayId == 0 },
-	{ addr: "wss://relay.lax1dude.net/", name: "lax1dude relay #2", primary: relayId == 1 },
-	{ addr: "wss://relay.shhnowisnottheti.me/", name: "ayunami relay #1", primary: relayId == 2 }
+	{ addr: "wss://eaglerrelay.glitch.me/", name: "hellscaped relay #2", primary: true },
 ],
 mainMenu: { splashes: [
 "Archimedes Client", "https://hellscaped.tech", "\"Have you ever looked at your mind while thinking about your mind, but using your brain the same time? But then wheres the cat?\" -Helloguys.com (on helltech)", 
