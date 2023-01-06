@@ -13,8 +13,8 @@
 
 </head>
 <body style="margin:0px;width:100vw;height:100vh;" id="game_frame">
-<!-- Make a texturepack selector and launcher button here -->
 <div class="container flex" id="launcher">
+<br>
 <h1>Archimedes Client</h1>
 <br>
 <h2>Please select a pack:</h2>
@@ -24,7 +24,7 @@
 <option value="qubit16x">Qubit 16x</option>
 </select>
 <br>
-<button onclick="Launch()">Launch</button>
+<button onclick="Launch()" id="lbtn">Launch</button>
 </div>
 <script type="text/javascript">
 if (localStorage.lastPack != null) {
