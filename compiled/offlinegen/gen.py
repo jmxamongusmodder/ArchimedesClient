@@ -29,7 +29,7 @@ templatePatch("classes_server_js", open("../classes_server.js").read())
 
 templatePatch("_css_", open("../style.css").read())
 
-templatePatch("_icon_", base64.b64encode(open("../favicon.png","rb").read()).decode("utf-8"))
+templatePatch("_icon_", base64.b64encode(open("../logo.jpeg","rb").read()).decode("utf-8"))
 
 templatePatch("_date_", os.popen("date").read())
 
