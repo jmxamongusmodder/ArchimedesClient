@@ -137,6 +137,7 @@ public class CraftingManager {
 		this.addShapelessRecipe(new ItemStack(Item.fireballCharge, 3), new Object[] { Item.gunpowder, Item.blazePowder, new ItemStack(Item.coal, 1, 1) });
 		this.addRecipe(new ItemStack(Block.daylightSensor), new Object[] { "GGG", "QQQ", "WWW", 'G', Block.glass, 'Q', Item.netherQuartz, 'W', Block.woodSingleSlab });
 		this.addRecipe(new ItemStack(Block.hopperBlock), new Object[] { "I I", "ICI", " I ", 'I', Item.ingotIron, 'C', Block.chest });
+		this.addShapelessRecipe(new ItemStack(Block.bedrock, 1), new Object[] { Item.paper, Item.ingotIron, Block.chest, Item.leather });
 		Collections.sort(this.recipes, new RecipeSorter(this));
 		System.out.println(this.recipes.size() + " recipes");
 	}
